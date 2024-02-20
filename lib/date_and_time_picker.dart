@@ -11,11 +11,15 @@ class _DateandTimePickerState extends State<DateandTimePicker> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Date and Time'),),
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: Center(child: Text('Date and Time')),),
       body: Center(
         child: Column(
           children: <Widget>[
-            Text("Select Time and Date"),
+            SizedBox(height: 100.0,),
+            Text("Select Time and Date",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 25),),
+            SizedBox(height: 30.0,),
             ElevatedButton(onPressed: () async{
               DateTime? datePicked = await showDatePicker(
                 context: context, 
@@ -25,7 +29,9 @@ class _DateandTimePickerState extends State<DateandTimePicker> {
                 print("Select Date ${datePicked.day}-${datePicked.month}-${datePicked.year}");
                }
             }, 
-            child: Text("Show Date"),
+            style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(
+              Color.fromARGB(255, 139, 179, 217))),
+            child: Text("Show Date",style: TextStyle(color: Colors.black),),
             ),
 
            ElevatedButton(
@@ -38,7 +44,8 @@ class _DateandTimePickerState extends State<DateandTimePicker> {
               print("Selected time: ${timePicked.format(context)}");
             }
           },
-              child: Text("Show Time"),
+          style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Color.fromARGB(255, 150, 197, 235))),
+              child: Text("Show Time",style: TextStyle(color: Colors.black),),
               ),
           ],
         ),
